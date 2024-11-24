@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CFD Database</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤬</text></svg>"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Customer Found Defect Database</h1>
+      <p>"Because sometimes the real QA happens after shipping"</p>
+    </div>
+    <div id="defect-container" class="card"></div>
+    <div class="card">
+      <h2>Submit Your Enhancement Opportunity</h2>
+      <p>
+        Found something that makes you want to scream into the void? Share it
+        with fellow frustrated customers!
+      </p>
+      <button class="submit-button" onclick="showForm()">
+        Submit Your Pain Point
+      </button>
+    </div>
+    <footer>
+      <p>Remember: It's not a bug, it's an undocumented feature!</p>
+      <p><small>Powered by Customer Frustration™</small></p>
+    </footer>
+    <div class="modal hidden" id="loading">
+      <div class="card">
+        <div class="spinner" id="spinner"></div>
+        <div style="text-align: center">
+          <div class="loading-text" id="loading-text"></div>
+          <img src="astley.gif" class="hidden" id="astley" />
+          <p class="hidden" id="contribute">
+            <small
+              >If you're actually interested in adding a defect, feel free to
+              <a href="https://github.com">contribute!</a></small
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="modal hidden" id="form-modal">
+      <div class="modal-content">
+        <h2>Submit Your Defect Report</h2>
+        <form id="defectForm">
+          <div class="form-group">
+            <label for="product">Product Name*</label>
+            <input type="text" id="product" required />
+          </div>
+          <div class="form-group">
+            <label for="expected">Expected Behavior*</label>
+            <textarea id="expected" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="actual">Actual Behavior*</label>
+            <textarea id="actual" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="frustration">Frustration Level*</label>
+            <select id="frustration" required>
+              <option value="">Select a level</option>
+              <option value="1">🔥 Mildly Annoying</option>
+              <option value="2">🔥🔥 Rather Irritating</option>
+              <option value="3">🔥🔥🔥 Seriously Frustrated</option>
+              <option value="4">🔥🔥🔥🔥 Extremely Aggravated</option>
+              <option value="5">🔥🔥🔥🔥🔥 Absolutely Livid</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="quote">Your Quote (Optional)</label>
+            <input
+              type="text"
+              id="quote"
+              placeholder="Express your frustration in words..."
+            />
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="form-button cancel-button"
+              onclick="hideAndResetForm()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="form-button submit-button">
+              Submit Report
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="defects.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
